@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment 
+  labels:
+    app: web
+## about pod    
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+        ## about conatiners
+    spec:
+      containers:
+      - name: go-web-app
+        image: go-app-ms:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+
+

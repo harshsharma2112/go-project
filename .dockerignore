@@ -1,0 +1,5 @@
+# Adding files which i dont want in docker build image
+# this / used when that is directory
+geometry/
+static/
+main

@@ -1,0 +1,42 @@
+use hello world and http server
+then mutex
+
+
+finding local hostname using details.go
+
+i have alpine to light weight the image
+debug conatiner image when docker is not able to build the immage go to the docker container.
+docker run -it --rm -v "$PWD":/app -w /app golang:1.20 bash
+tip: in this remeber the i st stage go version should be same like your local version
+tip: second stage of docker should match the match the binary arch of first stage
+
+Note: minikube cretaet the kubernets cluster inside the docker not your system
+
+To understnad the kubernetes service and deployement naming and service naming see the mentioned diagram
++------------------+           +---------------------------+
+|  Deployment      |  --->     |  Creates 1+ Pods          |
+|  Name: web-deployment        |  Label: app=web           |
++------------------+           +---------------------------+
+                                        |
+                                        v
+                          +---------------------------+
+                          | Pod                       |
+                          | Labels: app=web           |
+                          |                           |
+                          | +----------------------+  |
+                          | | Container             | |
+                          | | Name: go-web-app       | |
+                          | | Image: go-app-ms:latest| |
+                          | | Port: 80               | |
+                          | +----------------------+  |
+                          +---------------------------+
+
++------------------+           +---------------------------+
+|  Service         |  --->     |  Selects Pods             |
+|  Name: web-service           |  Matching: app=web        |
+|  Port: 80                    |  TargetPort: 80           |
++------------------+           +---------------------------+
+
+
+challenges:
+1. Traffic is not coming up in kubernets and pods not coming up

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service  # with this name i will refered it from other pod
+spec:
+  selector:
+    app: web   #It matches the labels on the Pods. For example, your Deployment had:
+  ports:
+    - port: 80   #Port expose by user
+      targetPort: 80  #Port which gonna receive trafffic

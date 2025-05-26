@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile   # Make sure the file is named correctly
+    image: go-apps-ms:latest
+    ports:
+      - "80:80"
+    restart: always            # should be `restart`, not `restarts`
+    networks:
+      - web
+
+networks:
+  web:
+## docker compose will build the coantiner image for me i dont need to run the command again anad again
