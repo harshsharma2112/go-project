@@ -1,3 +1,5 @@
+This Project is related to the go based web-server where i ahve the mutex Package of golang to handle the requets and respons
+
 use hello world and http server
 then mutex
 
@@ -40,3 +42,7 @@ To understnad the kubernetes service and deployement naming and service naming s
 
 challenges:
 1. Traffic is not coming up in kubernets and pods not coming up
+soln: Your Computer’s Docker <-- separate from --> Minikube VM Docker (where Kubernetes runs)
+switch your terminal to Minikube Docker and build your image inside it — so Kubernetes can use it directly.
+
+kubectl port-forward service/web-service 8080:80- run this command to access i ton web

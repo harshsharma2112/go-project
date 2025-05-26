@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
+#metadata.name: web-deployment → the label on the outside of the box (so Kubernetes can refer to it)
+#Inside the box, you have instructions for how to run your app called web and we need it because pods keep changing
 metadata:
-  name: web-deployment 
+  name: web-deployment  
   labels:
     app: web
 ## about pod    
