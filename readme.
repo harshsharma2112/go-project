@@ -46,3 +46,13 @@ soln: Your Computer’s Docker <-- separate from --> Minikube VM Docker (where K
 switch your terminal to Minikube Docker and build your image inside it — so Kubernetes can use it directly.
 
 kubectl port-forward service/web-service 8080:80- run this command to access i ton web
+
+2. understnding the function based object 
+handler := http.HandlerFunc(healthHandler)
+    handler.ServeHTTP(rr, req)
+	
+
+
+Testing learning:
+1. name the file like main_test.go becoz go expect the suffix before _test.go
+2.Look at your code function what parameter it had in the test code u need to use those parameter to do call the function

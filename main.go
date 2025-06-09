@@ -65,7 +65,7 @@ import (
 	// So Go doesn't care where the file physically is. It cares about the name you told it in go.mod.
 )
 
-func healthHandler(w http.ResponseWriter, r *http.Request) {
+func HealthHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("checking applictaion health")
 	response := map[string]string{
 		"status":    "UP",
@@ -101,7 +101,7 @@ func detailhandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/health", healthHandler)
+	r.HandleFunc("/health", HealthHandler)
 	r.HandleFunc("/", roothandler)
 	r.HandleFunc("/detail", detailhandler)
 	log.Println("server has started")
