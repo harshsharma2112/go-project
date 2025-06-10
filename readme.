@@ -51,6 +51,10 @@ kubectl port-forward service/web-service 8080:80- run this command to access i t
 handler := http.HandlerFunc(healthHandler)
     handler.ServeHTTP(rr, req)
 	
+3. capital letetr Problem 
+Refactor your code into a package
+Create a subdirectory (e.g., handler) and move your HealthHandler code into that package.
+or create the separate file 
 
 
 Testing learning:
