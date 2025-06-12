@@ -60,3 +60,5 @@ or create the separate file
 Testing learning:
 1. name the file like main_test.go becoz go expect the suffix before _test.go
 2.Look at your code function what parameter it had in the test code u need to use those parameter to do call the function
+3. go dodes nt print log statemewnt
+4. https require certificate
