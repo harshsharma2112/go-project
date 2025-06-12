@@ -37,4 +37,26 @@ func TestHealthHandler(t *testing.T) {
 	}
 }
 
+func TestRoothandler(t *testing.T) {
 
+	req, err := http.NewRequest("GET", "/", nil)
+	if err != nil {
+		t.Fatalf("fail rqst error %v", err)
+	}
+
+	rr := httptest.NewRecorder()
+
+	handler := http.HandlerFunc(Roothandler)
+	handler.ServeHTTP(rr, req)
+
+	if status := rr.Code; status != http.StatusOK {
+		t.Errorf("handler returned wrong staus got %v but want %v", status, http.StatusOK)
+		//errorf to support formatting
+	}
+
+	expected := "Aplication is running and up"
+	if rr.Body.String() != expected {
+		t.Errorf("expected body %q, got %q", expected, rr.Body.String())
+
+	}
+}

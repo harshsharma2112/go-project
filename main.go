@@ -75,7 +75,7 @@ func HealthHandler(w http.ResponseWriter, r *http.Request) {
 	//Imagine w is like the outbox of your server. When a client makes a request, you use w to place a response (HTML, JSON, text, etc.) back into the outbox.
 }
 
-func roothandler(w http.ResponseWriter, r *http.Request) {
+func Roothandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("serving homepage")
 	w.WriteHeader(http.StatusOK)                   //This line sets the HTTP status code for the response you're sending back from your server to the client.
 	fmt.Fprintf(w, "Aplication is running and up") //fmt.Fprintf is a Go function that formats a string and writes it to a specific output, like a file, buffer, or an HTTP response.
@@ -102,7 +102,7 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/health", HealthHandler)
-	r.HandleFunc("/", roothandler)
+	r.HandleFunc("/", Roothandler)
 	r.HandleFunc("/detail", detailhandler)
 	log.Println("server has started")
 	log.Fatal(http.ListenAndServe(":80", r))
