@@ -73,6 +73,7 @@ func HealthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	json.NewEncoder(w).Encode(response) // taken this line from json
 	//Imagine w is like the outbox of your server. When a client makes a request, you use w to place a response (HTML, JSON, text, etc.) back into the outbox.
+
 }
 
 func Roothandler(w http.ResponseWriter, r *http.Request) {
@@ -81,7 +82,7 @@ func Roothandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Aplication is running and up") //fmt.Fprintf is a Go function that formats a string and writes it to a specific output, like a file, buffer, or an HTTP response.
 }
 
-func detailhandler(w http.ResponseWriter, r *http.Request) {
+func Detailhandler(w http.ResponseWriter, r *http.Request) {  //why w is like this because http.ResponseWrite is an interface and in go we never create the pointer to interface like we r* for requets struct
 	log.Println("Fetching the details")
 	hostname, err := details.GetHostname() // using alias to use the func from the folder
 	if err != nil {
@@ -103,7 +104,7 @@ func main() {
 
 	r.HandleFunc("/health", HealthHandler)
 	r.HandleFunc("/", Roothandler)
-	r.HandleFunc("/detail", detailhandler)
+	r.HandleFunc("/detail", Detailhandler)
 	log.Println("server has started")
 	log.Fatal(http.ListenAndServe(":80", r))
 
